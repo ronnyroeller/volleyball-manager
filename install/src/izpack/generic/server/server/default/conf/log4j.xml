@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+	<!--
+		=====================================================================
+	-->
+	<!--
+	-->
+	<!--
+		Log4j Configuration
+	-->
+	<!--
+	-->
+	<!--
+		=====================================================================
+	-->
+
+	<!-- $Id: log4j.xml,v 1.13.2.13 2004/05/11 16:33:46 belaban Exp $ -->
+
+	<!--
+		| For more configuration infromation and examples see the Jakarta
+		Log4j | owebsite: http://jakarta.apache.org/log4j
+	-->
+
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+
+	<!-- ================================= -->
+	<!-- Preserve messages in a local file -->
+	<!-- ================================= -->
+
+	<!-- A time/date based rolling appender -->
+	<appender name="FILE"
+		class="org.jboss.logging.appender.DailyRollingFileAppender">
+		<errorHandler class="org.jboss.logging.util.OnlyOnceErrorHandler" />
+		<param name="File" value="${jboss.server.home.dir}/log/server.log" />
+		<param name="Append" value="false" />
+
+		<!-- Rollover at midnight each day -->
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- The default pattern: Date Priority [Category] Message\n -->
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+
+			<!--
+				The full pattern: Date MS Priority [Category] (Thread:NDC) Message\n
+				<param name="ConversionPattern" value="%d %-5r %-5p [%c] (%t:%x)
+				%m%n"/>
+			-->
+		</layout>
+	</appender>
+
+	<!-- ============================== -->
+	<!-- Append messages to the console -->
+	<!-- ============================== -->
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<errorHandler class="org.jboss.logging.util.OnlyOnceErrorHandler" />
+		<param name="Target" value="System.out" />
+		<param name="Threshold" value="INFO" />
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- The default pattern: Date Priority [Category] Message\n -->
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="JSR77" class="org.apache.log4j.FileAppender">
+		<errorHandler class="org.jboss.logging.util.OnlyOnceErrorHandler" />
+		<param name="Append" value="false" />
+		<param name="File" value="${jboss.server.home.dir}/log/jsr77.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n" />
+		</layout>
+	</appender>
+
+
+	<!-- Volleyball Manager appenders -->
+	<!--
+		To improve performance remove %C:%L since this can be very slow:
+		http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html
+	-->
+	<appender name="web" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${jboss.server.home.dir}/../../../log/web.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %C{1}:%L %m%n" />
+		</layout>
+	</appender>
+	<appender name="server" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${jboss.server.home.dir}/../../../log/server.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %C{1}:%L %m%n" />
+		</layout>
+	</appender>
+	<appender name="platform" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${jboss.server.home.dir}/../../../log/platform.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %C{1}:%L %m%n" />
+		</layout>
+	</appender>
+
+
+	<!-- ================ -->
+	<!-- Limit categories -->
+	<!-- ================ -->
+
+	<!-- Limit the org.apache category to INFO as its DEBUG is verbose -->
+	<category name="org.apache">
+		<priority value="INFO" />
+	</category>
+
+	<!-- Limit org.jgroups category to INFO -->
+	<category name="org.jgroups">
+		<priority value="INFO" />
+	</category>
+
+
+	<!-- ============================= -->
+	<!-- Volleyball Manager categories -->
+	<!-- ============================= -->
+
+	<!-- Server -->
+	<logger name="com.sport.server" additivity="false">
+		<level value="info" />
+		<appender-ref ref="server" />
+	</logger>
+
+	<logger name="com.sport.analyzer" additivity="false">
+		<level value="info" />
+		<appender-ref ref="server" />
+	</logger>
+
+	<logger name="com.sport.scheduler" additivity="false">
+		<level value="info" />
+		<appender-ref ref="server" />
+	</logger>
+
+	<logger name="com.sport.core" additivity="false">
+		<level value="info" />
+		<appender-ref ref="server" />
+	</logger>
+
+	<logger name="org.apache.fop" additivity="false">
+		<level value="info" />
+		<appender-ref ref="server" />
+	</logger>
+
+	<!-- Terminal and projector -->
+	<logger name="com.sport.web" additivity="false">
+		<level value="info" />
+		<appender-ref ref="web" />
+	</logger>
+
+	<logger name="jsp" additivity="false">
+		<level value="info" />
+		<appender-ref ref="web" />
+	</logger>
+
+	<logger name="org.apache.struts" additivity="false">
+		<level value="info" />
+		<appender-ref ref="web" />
+	</logger>
+
+	<logger name="org.apache.jasper" additivity="false">
+		<level value="info" />
+		<appender-ref ref="web" />
+	</logger>
+
+	<!-- ======================= -->
+	<!-- Setup the Root category -->
+	<!-- ======================= -->
+
+	<root>
+		<priority value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="platform" />
+	</root>
+
+</log4j:configuration>
