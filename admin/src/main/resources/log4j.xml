@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %F:%L %m%n" />
+		</layout>
+	</appender>
+	<appender name="application" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../log/administrator.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %C %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.sport" additivity="false">
+		<level value="info" />
+		<appender-ref ref="application" />
+	</logger>
+
+	<root>
+		<priority value="info"></priority>
+		<appender-ref ref="application" />
+	</root>
+</log4j:configuration>
