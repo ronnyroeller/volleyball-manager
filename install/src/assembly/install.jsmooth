@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jsmoothproject>
+	<JVMSearchPath>registry</JVMSearchPath>
+	<JVMSearchPath>javahome</JVMSearchPath>
+	<JVMSearchPath>jrepath</JVMSearchPath>
+	<JVMSearchPath>jdkpath</JVMSearchPath>
+	<JVMSearchPath>exepath</JVMSearchPath>
+	<JVMSearchPath>jview</JVMSearchPath>
+	<arguments></arguments>
+	<executableName>install-$VERSION_NUMBER$.exe</executableName>
+	<iconLocation>icon.png</iconLocation>
+	<initialMemoryHeap>-1</initialMemoryHeap>
+	<jarLocation>install-$VERSION_NUMBER$.windows.jar</jarLocation>
+	<mainClassName>com.izforge.izpack.installer.Installer</mainClassName>
+	<maximumMemoryHeap>-1</maximumMemoryHeap>
+	<maximumVersion></maximumVersion>
+	<minimumVersion>1.4.0</minimumVersion>
+	<skeletonName>Windowed Wrapper</skeletonName>
+	<skeletonProperties>
+		<key>Message</key>
+		<value>Java was not found on your computer. Do you want to download it
+			for free?</value>
+	</skeletonProperties>
+	<skeletonProperties>
+		<key>URL</key>
+		<value>http://jdl.sun.com/webapps/download/AutoDL?BundleId=9992
+		</value>
+	</skeletonProperties>
+	<skeletonProperties>
+		<key>SingleProcess</key>
+		<value>0</value>
+	</skeletonProperties>
+</jsmoothproject>
