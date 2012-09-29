@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+
+<installation version="1.0">
+
+	<info>
+		<appname>VolleyballManager</appname>
+		<appversion>$VERSION_NUMBER$</appversion>
+		<authors>
+			<author name="Roeller" email="info@volleyball-manager.com" />
+		</authors>
+		<url>http://www.volleyball-manager.com</url>
+		<javaversion>1.5</javaversion>
+		<pack200 />
+	</info>
+
+	<!--
+		The gui preferences indication. Sets the installer window to 640x480.
+		It will not be able to change the size.
+	-->
+	<guiprefs width="640" height="480" resizable="no" />
+
+	<!-- 
+        The locale section.
+    -->
+	<locale>
+		<langpack iso3="eng" />
+		<langpack iso3="deu" />
+		<langpack iso3="spa" />
+		<langpack iso3="ned" />
+	</locale>
+
+	<!--
+		The resources section. The ids must be these ones if you want to use
+		the LicencePanel and/or the InfoPanel.
+	-->
+	<resources>
+		<res id="InfoPanel.info" src="readme.txt" />
+		<res id="InfoPanel.info_spa" src="readme.spa.txt" />
+		<res id="InfoPanel.info_deu" src="readme.deu.txt" />
+		<res id="useNativeLAF" src="Readme.txt" />
+		<res id="shortcutSpec.xml" src="shortcutSpec.xml" />
+		<res id="Installer.image" src="installer.png" />
+
+		<!--
+			Set installation direction. Can't be official Windows program
+			directory since this requires administration rights."
+		-->
+		<res id="TargetPanel.dir.windows" src="TargetDir.txt" />
+	</resources>
+
+	<!--
+		The panels section. We indicate here which panels we want to use. The
+		order will be respected.
+	-->
+	<panels>
+		<panel classname="HelloPanel" />
+		<panel classname="TargetPanel" />
+		<panel classname="InstallPanel" />
+		<panel classname="ShortcutPanel" />
+		<panel classname="InfoPanel" />
+		<panel classname="SimpleFinishPanel" />
+	</panels>
+
+	<native type="izpack" name="ShellLink.dll" />
+
+	<!--
+		The packs section. We specify here our packs.
+	-->
+	<packs>
+		<pack name="Basis" required="yes" id="pack.basis">
+			<description />
+			<file src="Uninstaller" targetdir="$INSTALL_PATH" />
+			<file src="data" targetdir="$INSTALL_PATH" />
+			<file src="doc" targetdir="$INSTALL_PATH" />
+			<file src="log" targetdir="$INSTALL_PATH" />
+			<file src="readme.txt" targetdir="$INSTALL_PATH" />
+			<file src="readme.deu.txt" targetdir="$INSTALL_PATH" />
+			<file src="readme.ned.txt" targetdir="$INSTALL_PATH" />
+			<file src="readme.spa.txt" targetdir="$INSTALL_PATH" />
+			<file src="readme.eng.txt" targetdir="$INSTALL_PATH" />
+			<file src="thirdparty" targetdir="$INSTALL_PATH" />
+		</pack>
+		<pack name="Administrator" required="yes" id="pack.admin">
+			<description />
+			<file src="admin" targetdir="$INSTALL_PATH" />
+			<parsable targetfile="$INSTALL_PATH/admin/jvolley.properties" />
+		</pack>
+		<pack name="Server" required="yes" id="pack.server">
+			<description />
+			<file src="server" targetdir="$INSTALL_PATH" />
+		</pack>
+	</packs>
+
+</installation>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<shortcuts>
+	<programGroup	defaultName="Volleyball Manager $VERSION_NUMBER$"
+					location="applications"/>
+	<shortcut	name="Volleyball Server"
+				target="$INSTALL_PATH/server/bin/run.bat"
+				workingDirectory="$INSTALL_PATH/server/bin"
+				description="Server Application"
+				iconFile="$INSTALL_PATH/server/bin/iconserv.ico"
+				programGroup="yes"
+				desktop="yes" />
+	<!-- Seems to be not working in IZPack 4.3.2
+	<shortcut	name="Documentation"
+				url="http://www.volleyball-manager.com/en/download/"
+				description="Web documentation"
+				programGroup="yes"
+				type="Link" />
+	-->
+	<shortcut	name="Volleyball Administrator"
+				target="$INSTALL_PATH/admin/admin.exe"
+				workingDirectory="$INSTALL_PATH/admin"
+				description="Administration application"
+				iconFile="$INSTALL_PATH/admin/icon.ico"
+				programGroup="yes"
+				desktop="yes" />
+	<shortcut	name="Volleyball Uninstall"
+				target="$INSTALL_PATH/Uninstaller/uninstall.bat"
+				workingDirectory="$INSTALL_PATH/Uninstaller"
+				description="Uninstall the application"
+				iconFile="$INSTALL_PATH/Uninstaller/uninstall.ico"
+				initialState="noShow"
+				programGroup="yes" />
+
+</shortcuts>
