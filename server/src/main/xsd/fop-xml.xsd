@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<!-- XML that is sent to FOP (PDF generation). All PDFs use the same XML input. -->
+	<xs:element name="fop-tournament">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="info" />
+				<xs:element ref="fields" />
+				<xs:element ref="groups" />
+				<xs:element ref="blocks" />
+				<xs:element ref="fop-messages" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- General information about the tournament -->
+	<xs:element name="info">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name" />
+				<xs:element ref="license" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="name" type="xs:string" />
+	<xs:element name="license">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="firstname" />
+				<xs:element ref="lastname" />
+				<xs:element ref="city" />
+				<xs:element ref="country" />
+				<xs:element ref="type" />
+				<xs:element ref="type-locale" />
+				<xs:element ref="organisation" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="firstname" type="xs:string" />
+	<xs:element name="lastname" type="xs:string" />
+	<xs:element name="city" type="xs:string" />
+	<xs:element name="country" type="xs:string" />
+	<xs:element name="type" type="xs:string" />
+	<xs:element name="type-locale" type="xs:string" />
+	<xs:element name="organisation" type="xs:string" />
+
+	<!-- Fields -->
+	<xs:element name="fields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="fop-field" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fop-field">
+		<xs:complexType>
+			<xs:attribute name="name" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Groups -->
+	<xs:element name="groups">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="fop-group" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fop-group">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="fop-team" />
+			</xs:sequence>
+			<xs:attribute name="name" use="required" />
+			<xs:attribute name="color" use="required" />
+			<xs:attribute name="system" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fop-team">
+		<xs:complexType>
+			<xs:attribute name="rank" use="required" type="xs:int" />
+			<xs:attribute name="name" use="required" />
+			<xs:attribute name="total-matches" use="required" type="xs:int" />
+			<xs:attribute name="won-matches" use="required" type="xs:int" />
+			<xs:attribute name="lost-matches" use="required" type="xs:int" />
+			<xs:attribute name="won-sets" use="required" type="xs:int" />
+			<xs:attribute name="lost-sets" use="required" type="xs:int" />
+			<xs:attribute name="won-points" use="required" type="xs:int" />
+			<xs:attribute name="lost-points" use="required" type="xs:int" />
+			<xs:attribute name="diff-points" use="required" type="xs:int" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Blocks for the schedule -->
+	<xs:element name="blocks">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="block" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="block">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="fop-match" />
+			</xs:sequence>
+			<xs:attribute name="end-time" use="required" />
+			<xs:attribute name="start-time" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fop-match">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="team1" />
+				<xs:element ref="team2" />
+				<xs:element ref="referee" />
+				<xs:element ref="sets" />
+			</xs:sequence>
+			<xs:attribute name="group" use="required" />
+			<xs:attribute name="color" use="required" />
+			<xs:attribute name="field" use="required" />
+			<xs:attribute name="winner" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="team1">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="rel" use="required" type="xs:string" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="team2">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="bold" use="required" type="xs:boolean" />
+					<xs:attribute name="rel" use="required" type="xs:string" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="referee">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="rel" use="required" type="xs:string" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sets">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="fop-set" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fop-set">
+		<xs:complexType>
+			<xs:attribute name="points1" use="required" type="xs:int" />
+			<xs:attribute name="points2" use="required" type="xs:int" />
+			<xs:attribute name="winner" use="required" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- i18n strings -->
+	<xs:element name="fop-messages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="message" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="message">
+		<xs:complexType mixed="true">
+			<xs:attribute name="key" use="required" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:element name="turnier">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Linkid" />
+				<xs:element ref="Datum" />
+				<xs:element ref="Punkteprosatz" />
+				<xs:element ref="Punkteprospiel" />
+				<xs:element ref="Punkteprounentschiedenspiel" />
+				<xs:element ref="Spieldauer" />
+				<xs:element ref="Pausedauer" />
+				<xs:element ref="Beamerumschaltzeit" />
+				<xs:element ref="BannerLink" />
+				<xs:element ref="Spielplangesperrt" />
+				<xs:element ref="Name" />
+				<xs:element ref="Text" />
+				<xs:element maxOccurs="unbounded" ref="spielplatz" />
+				<xs:element maxOccurs="unbounded" ref="gruppe" />
+				<!--
+					xs:choice maxOccurs="unbounded"> <xs:element ref="mannschaft" />
+					<xs:element ref="spiel" /> </xs:choice
+				-->
+				<xs:element maxOccurs="unbounded" ref="mannschaft" />
+				<xs:element maxOccurs="unbounded" ref="spiel" />
+				<xs:element maxOccurs="unbounded" ref="platzierung" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Linkid" type="xs:string" />
+	<xs:element name="Datum" type="xs:string" />
+	<xs:element name="Punkteprosatz" type="xs:int" />
+	<xs:element name="Punkteprospiel" type="xs:int" />
+	<xs:element name="Punkteprounentschiedenspiel" type="xs:double" />
+	<xs:element name="Spieldauer" type="xs:int" />
+	<xs:element name="Pausedauer" type="xs:int" />
+	<xs:element name="Beamerumschaltzeit" type="xs:int" />
+	<xs:element name="BannerLink" type="xs:string" />
+	<xs:element name="Spielplangesperrt" type="xs:boolean" />
+	<xs:element name="Text" type="xs:string" />
+	<xs:element name="spielplatz">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Farbe" />
+				<xs:element ref="Name" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:int" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="gruppe">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Sort" />
+				<xs:element ref="Farbe" />
+				<xs:element ref="Name" />
+				<xs:element ref="modus-id" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:int" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="modus-id" type="xs:int" />
+	<xs:element name="mannschaft">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Sort" />
+				<xs:element ref="Logsort" />
+				<xs:element ref="Name" />
+				<xs:element ref="gruppe-id" />
+				<xs:element ref="loggruppe-id" />
+				<xs:element ref="logspiel-id" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:int" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Logsort" type="xs:int" />
+
+	<!--
+		Defined as string instead of int, so that it is not written in case it
+		doesn't have a value
+	-->
+	<xs:element name="loggruppe-id" type="xs:string" />
+	<!--
+		Defined as string instead of int, so that it is not written in case it
+		doesn't have a value
+	-->
+	<xs:element name="logspiel-id" type="xs:string" />
+
+	<xs:element name="spiel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Vondatum" />
+				<xs:element ref="Bisdatum" />
+				<xs:element ref="gruppe-id" />
+				<xs:element ref="mannschaft1-id" />
+				<xs:element ref="mannschaft2-id" />
+				<xs:element ref="schiedsrichter-id" />
+				<xs:element ref="spielplatz-id" />
+				<xs:element maxOccurs="unbounded" ref="satz" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:int" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Vondatum" type="xs:string" />
+	<xs:element name="Bisdatum" type="xs:string" />
+	<xs:element name="mannschaft1-id" type="xs:int" />
+	<xs:element name="mannschaft2-id" type="xs:int" />
+	<xs:element name="schiedsrichter-id" type="xs:int" />
+	<xs:element name="spielplatz-id" type="xs:int" />
+	<xs:element name="Name" type="xs:string" />
+	<xs:element name="Farbe" type="xs:string" />
+	<xs:element name="Sort" type="xs:int" />
+	<xs:element name="gruppe-id" type="xs:int" />
+	<xs:element name="satz">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Punkte1" />
+				<xs:element ref="Punkte2" />
+				<xs:element ref="Satznr" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Punkte1" type="xs:int" />
+	<xs:element name="Punkte2" type="xs:int" />
+	<xs:element name="Satznr" type="xs:int" />
+
+	<xs:element name="platzierung">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Platznr" />
+				<xs:element ref="mannschaft-id" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Platznr" type="xs:int" />
+	<xs:element name="mannschaft-id" type="xs:int" />
+
+</xs:schema>
