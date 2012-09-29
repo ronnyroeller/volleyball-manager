@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.volley</groupId>
+	<artifactId>core</artifactId>
+	<packaging>jar</packaging>
+	<version>${version.number}-SNAPSHOT</version>
+	<name>core</name>
+	<url>http://maven.apache.org</url>
+	<parent>
+		<groupId>com.volley</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<!-- Replace version number and build time in Java files -->
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+			<version>3.0</version>
+		</dependency>
+		
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.11</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+	</dependencies>
+	<repositories>
+		<repository>
+			<!-- Needed for EJBs -->
+			<id>maven2-repository.jboss.com</id>
+			<url>http://repository.jboss.com/maven2/</url>
+		</repository>
+	</repositories>
+	<properties>
+		<!-- For verification of the license -->
+		<maven.build.timestamp.format>4057130783dd8357368369yy8MM5728</maven.build.timestamp.format>
+		<build.time>${maven.build.timestamp}</build.time>
+	</properties>
+</project>
