@@ -1,0 +1,54 @@
+body
+ {
+ background-color: #FFFFFF;
+ }
+
+body.controlpanel
+ {
+ background-color: #bfbfff;
+ }
+
+p, div, body, li, td, ul
+ {
+ font-family: sans-serif;
+ font-size: 24px;
+ color: #000000;
+ font-weight: bold;
+ }
+
+table { padding: 2; border: 1; }
+
+tr, td { vertical-align: top }
+
+.header { font-size: 36px; font-weight: bold; color: #333333; }
+.dataheader, p.subheader { font-weight: bold; color: #333333; }
+.databody, p.info, p.subbody, p.control, p.werbung { }
+
+.header, tr.control { background-color: #FFFFFF; }
+.dataheader, tr.dataheader, tr.subheader { background-color: #DDDDDD; }
+.databody, .databody, tr.info, tr.subbody { background-color: #FFFFFF;  }
+
+a:link
+ {
+ text-decoration: none;
+ color: #3333CC
+ }
+
+a:visited
+ {
+ text-decoration: none;
+ color: #3333CC
+ }
+
+a:active
+ {
+ text-decoration: none;
+ color: #3333FF
+ }
+
+a:hover
+ {
+ text-decoration: none;
+ color: #3333FF
+ }
+

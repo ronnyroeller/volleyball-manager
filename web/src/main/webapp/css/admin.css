@@ -1,0 +1,92 @@
+body
+ {
+ background-color: #E8F1F8;
+ }
+
+body.controlpanel
+ {
+ background-color: #bfbfff;
+ }
+
+H1
+ {
+ font-family: sans-serif;
+ color: #2775b3;
+ font-size: 16px;
+ }
+
+H3
+ {
+ font-family: sans-serif;
+ color: #2775b3;
+ font-size: 12px;
+ margin-bottom: -10px;
+ font-weight: bold;
+ }
+
+p, div, body, li, td, ul
+ {
+ font-family: sans-serif;
+ font-size: 12px;
+ color: #000000;
+ }
+
+table { border-width: 1px; border-style:solid; }
+.mainwerbung { background-color: #2775b3; }
+
+tr, td { vertical-align: top }
+
+p.werbung { font-weight: bold; font-size: 14px; }
+
+.header { font-weight: bold; color: #333333; font-size: 14px; } 
+.header, .menu, .control { background-color: #7fa8d0;  }
+.dataheader, .subheader, table.tabelle, .h { font-weight: bold; color: #333333; background-color: #9fcaf2; }
+.databody, .info, .subbody, .b { font-weight: normal; background-color: #ffffff;  }
+table.tabelle { border-width: 0px; border-color:#9fcaf2; }
+
+.menu_active { background-color: #9fcaf2; }
+
+a:link
+ {
+ font-family: sans-serif;
+ font-size: 12px;
+ text-decoration: none;
+ color: #333366;
+ }
+
+a:visited
+ {
+ font-family: sans-serif;
+ font-size: 12px;
+ text-decoration: none;
+ color: #334433;
+ }
+
+a:active
+ {
+ font-family: sans-serif;
+ font-size: 12px;
+ text-decoration: none;
+ color: #111111;
+ }
+
+a:hover
+ {
+ font-family: sans-serif;
+ font-size: 12px;
+ text-decoration: underline;
+ color: #ff3333;
+ }
+
+.form
+ {
+ font-family: sans-serif;
+ border-style:solid; 
+ font-weight:normal; 
+ font-size: 12px;
+ border-color: #696D6F;		
+}	
+
+img {
+ border-color: #000000;		
+}	
