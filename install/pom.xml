@@ -1,0 +1,275 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.volley</groupId>
+	<artifactId>install</artifactId>
+	<name>Installer</name>
+	<packaging>jar</packaging>
+	<version>${version.number}-SNAPSHOT</version>
+	<description>Installation application</description>
+	<parent>
+		<artifactId>parent</artifactId>
+		<groupId>com.volley</groupId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<build>
+		<plugins>
+			<!--
+				prepare dependencies so that izpack jar tag to pickup at compile
+				time
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.0</version>
+				<executions>
+					<execution>
+						<id>copy-admin-windows</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<stripVersion>true</stripVersion>
+							<includeArtifactIds>admin</includeArtifactIds>
+							<includeTypes>exe</includeTypes>
+							<outputDirectory>${staging.windows.dir}/admin</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-admin-linux</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<stripVersion>true</stripVersion>
+							<includeArtifactIds>admin</includeArtifactIds>
+							<includeTypes>jar</includeTypes>
+							<outputDirectory>${staging.linux.dir}/admin</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-lib</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<stripVersion>true</stripVersion>
+							<includeArtifactIds>core</includeArtifactIds>
+							<outputDirectory>${staging.dir}/server/server/default/lib</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-deploy</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<stripVersion>true</stripVersion>
+							<includeArtifactIds>server,web</includeArtifactIds>
+							<outputDirectory>${staging.dir}/server/server/default/deploy</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!--
+				Copy all resources OS-specific into staging area, expected by
+				install.xml
+			-->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>create-staging-area</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<!-- Copy OS-specific files -->
+								<copy todir="${staging.windows.dir}">
+									<fileset dir="${izpack.dir}/generic" />
+									<fileset dir="${izpack.dir}/windows" />
+									<fileset dir="${staging.dir}" />
+								</copy>
+								<copy todir="${staging.linux.dir}">
+									<fileset dir="${izpack.dir}/generic" />
+									<fileset dir="${izpack.dir}/linux" />
+									<fileset dir="${staging.dir}" />
+								</copy>
+
+								<!-- Copy JSmooth config file to replace version number -->
+								<copy file="${basedir}/src/assembly/install.jsmooth" todir="${project.build.directory}" />
+
+								<!-- Add version number to files -->
+								<replace dir="${staging.windows.dir}" includes="*.xml,*.txt"
+									token="$VERSION_NUMBER$" value="${version.number}" />
+								<replace dir="${staging.linux.dir}" includes="*.xml,*.txt"
+									token="$VERSION_NUMBER$" value="${version.number}" />
+								<replace dir="${project.build.directory}" includes="*.jsmooth"
+									token="$VERSION_NUMBER$" value="${version.number}" />
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Create installer -->
+			<plugin>
+				<groupId>org.codehaus.izpack</groupId>
+				<artifactId>izpack-maven-plugin</artifactId>
+				<version>1.0-alpha-5</version>
+				<executions>
+					<execution>
+						<id>windows</id>
+						<phase>package</phase>
+						<goals>
+							<goal>izpack</goal>
+						</goals>
+						<configuration>
+							<installerFile>${project.build.directory}/install-${version.number}.windows.jar</installerFile>
+							<izpackBasedir>${staging.windows.dir}</izpackBasedir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>linux</id>
+						<phase>package</phase>
+						<goals>
+							<goal>izpack</goal>
+						</goals>
+						<configuration>
+							<installerFile>${project.build.directory}/install.jar</installerFile>
+							<izpackBasedir>${staging.linux.dir}</izpackBasedir>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.izpack</groupId>
+						<artifactId>izpack-standalone-compiler</artifactId>
+						<version>${izpack.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!-- Build EXE file -->
+			<plugin>
+				<groupId>com.mindtree.techworks.insight.releng</groupId>
+				<artifactId>maven-jsmooth-plugin</artifactId>
+				<version>0.2.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jsmoothcompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<jsmoothFile>${project.build.directory}/install.jsmooth</jsmoothFile>
+					<iconLocation>src/assembly/resources/icon.png</iconLocation>
+					<setExeName>false</setExeName>
+					<setJarName>false</setJarName>
+				</configuration>
+			</plugin>
+
+			<!-- Package Linux file -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<finalName>install-${version.number}</finalName>
+					<descriptors>
+						<descriptor>src/assembly/assemble.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>package-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attached</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>core</artifactId>
+			<version>${version.number}-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>server</artifactId>
+			<version>${version.number}-SNAPSHOT</version>
+			<!--
+				Avoid that xerces gets imported since it clashes with IZpack. See:
+				http://groups.google.com/group/izpack-user/browse_thread/thread/5b8781d40b621092/77414c49316d6d3e
+			-->
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.xmlgraphics</groupId>
+					<artifactId>fop</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>web</artifactId>
+			<type>war</type>
+			<version>${version.number}-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>admin</artifactId>
+			<version>${version.number}-SNAPSHOT</version>
+			<type>exe</type>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>admin</artifactId>
+			<version>${version.number}-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.izpack</groupId>
+			<artifactId>izpack-standalone-compiler</artifactId>
+			<version>${izpack.version}</version>
+		</dependency>
+	</dependencies>
+	<repositories>
+		<repository>
+			<!-- Needed for JBoss client classes -->
+			<id>maven2-repository.codehouse</id>
+			<url>http://repository.codehaus.org</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>codehaus-plugins</id>
+			<url>http://repository.codehaus.org</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+	<properties>
+		<!-- Tool configuration -->
+		<izpack.dir>${basedir}/src/izpack</izpack.dir>
+		<staging.dir>${project.build.directory}/staging.generic</staging.dir>
+		<staging.windows.dir>${project.build.directory}/staging.windows</staging.windows.dir>
+		<staging.linux.dir>${project.build.directory}/staging.linux</staging.linux.dir>
+		<izpack.version>4.3.2</izpack.version>
+	</properties>
+</project>
