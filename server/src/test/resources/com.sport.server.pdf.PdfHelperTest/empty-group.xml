@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fop-tournament>
+	<info>
+		<name>Beispielturnier</name>
+		<license>
+			<firstname>Unregistered</firstname>
+			<lastname>Unregistered</lastname>
+			<city>Unregistered</city>
+			<country>Unregistered</country>
+			<type>licence_demo</type>
+			<type-locale>Demo License</type-locale>
+			<organisation>Unregistered</organisation>
+		</license>
+	</info>
+	<fields>
+		<fop-field name="Feld 1" />
+		<fop-field name="Feld 2" />
+	</fields>
+	<groups>
+		<fop-group system="Double Elimination" color="#ffffff" name="Leer" />
+		<fop-group system="Pool play" color="#ccccff" name="Vorrunde A">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Rotterdam" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Eindhoven" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Amsterdam" rank="3" />
+		</fop-group>
+		<fop-group system="Pool play" color="#ffcccc" name="Vorrunde B">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Den Haag" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Maastricht" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Haarlem" rank="3" />
+		</fop-group>
+		<fop-group system="Pool play" color="#ccffcc" name="Vorrunde C">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Breda" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Alkmaar" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Groningen" rank="3" />
+		</fop-group>
+		<fop-group system="Pool play" color="#ffffcc" name="Vorrunde D">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Emmen" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Leiden" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="Utrecht" rank="3" />
+		</fop-group>
+		<fop-group system="Single Elimination" color="#ff3333" name="Mix 1">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="1. Pl of Vorrunde D" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="1. Pl of Vorrunde C" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="1. Pl of Vorrunde A" rank="3" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="1. Pl of Vorrunde B" rank="4" />
+		</fop-group>
+		<fop-group system="Single Elimination" color="#0000ff" name="Mix 2">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="2. Pl of Vorrunde B" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="2. Pl of Vorrunde C" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="2. Pl of Vorrunde A" rank="3" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="2. Pl of Vorrunde D" rank="4" />
+		</fop-group>
+		<fop-group system="Single Elimination" color="#ffff00" name="Mix 3">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="3. Pl of Vorrunde C" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="3. Pl of Vorrunde A" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="1. Pl of Vorrunde D" rank="3" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="3. Pl of Vorrunde B" rank="4" />
+		</fop-group>
+		<fop-group system="Single Elimination" color="#cccccc" name="5. Platz">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="2. Pl of Mix 2" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="3. Pl of Mix 1" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="3. Pl of Mix 2" rank="3" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="2. Pl of Mix 3" rank="4" />
+		</fop-group>
+		<fop-group system="Single Elimination" color="#333333" name="Final">
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="2. Pl of Mix 1" rank="1" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="1. Pl of Mix 3" rank="2" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="1. Pl of Mix 2" rank="3" />
+			<fop-team diff-points="0" lost-points="0" won-points="0"
+				lost-sets="0" won-sets="0" lost-matches="0" won-matches="0"
+				total-matches="0" name="1. Pl of Mix 1" rank="4" />
+		</fop-group>
+	</groups>
+	<blocks />
+	<fop-messages>
+		<message key="jsp_kontakt_copyrighttext">Sie sind nicht berechtigt, Inhalt und Design der
+			Publikation ohne ausdr&amp;uuml;ckliche, schriftliche Genehmigung
+			unsererseits zu kopieren, zu ver&amp;auml;ndern oder unter eigenem
+			Namen zu verbreiten.&lt;br /&gt;Fremde Markennamen werden frei ohne
+			gesonderte Kennzeichnung auf unserer Site verwendet. Die Namen sind
+			Eigentum der jeweiligen Besitzer.</message>
+		<message key="init_wrong_parameter">Falsche Parameter: todo={drop, init}</message>
+		<message key="jsp_kontakt_legals">Rechtliches</message>
+		<message key="volleyframe_view_results">Ergebnisse</message>
+		<message key="jsp_spielplan_schedule">Spielplan</message>
+		<message key="jsp_gruppe_nga">-Sp</message>
+		<message key="modusbo_doppelkomode">Doppel-KO-Modus</message>
+		<message key="gruppentable_popup_title2">--------------------+---+---+---+---+---+---+---+---
+		</message>
+		<message key="platzierungentable_new_placement">Neue Platzierung</message>
+		<message key="overwrite_dir">Ein Verzeichnis mit diesem Namen existiert
+			bereits.
+			Wollen Sie dieses überschreiben?</message>
+		<message key="turnierpanel_bannerlink">Werbebanner</message>
+		<message key="volleypanel_reset">zurücksetzen</message>
+		<message key="init_drop_db">Drop DB</message>
+		<message key="turnierpanel_linkidconflict">Diese Linkid wird bereits von einem anderen
+			Turnier genutzt.
+			Bitte wählen Sie eine andere.</message>
+		<message key="gruppentable_select_color">Farbe auswählen</message>
+		<message key="jsp_turnier_contactimpressum">Kontakt / Impressum</message>
+		<message key="pdf_spielbericht_number">Nr.</message>
+		<message key="volleyframe_view">Ansicht</message>
+		<message key="spielplaetzetable_del_field">Spielplatz löschen</message>
+		<message key="platzierungentable_del_placement">Platzierung löschen</message>
+		<message key="volleyframe_pdf_gruppen">Gruppen ...</message>
+		<message key="spielplantable_renew">Spielplan löschen</message>
+		<message key="spielblockeditpanel_begin">Beginn</message>
+		<message key="saetzetable_first_team">1. Mannschaft</message>
+		<message key="pdf_spielplan_title">S P I E L P L A N</message>
+		<message key="exportdialog_export_to_pdf"> nach PDF Exportieren</message>
+		<message key="pdf_schiedsrichter_points">Punkte</message>
+		<message key="volleyframe_language">Sprache</message>
+		<message key="volleyframe_website">Im WWW besuchen</message>
+		<message key="volleyframe_view_start">Startseite</message>
+		<message key="mannschaftentable_new_team">Neue Mannschaft</message>
+		<message key="jsp_gruppe_ppo">+Bä</message>
+		<message key="jsp_gruppe_nset">-Sä</message>
+		<message key="jsp_spielplan_text">In der ersten Zeile stehen die Ansetzungen nach
+			dem jeweiligen Stand der Dinge. D.h. bei laufenden Vorrundenspielen
+			wird als Gruppensieger jeweils der momentan führende angegeben. Da
+			kann sich natürlich noch viel ändern. In Klammern nach den
+			Mannschaften ist - falls vorhanden - jeweils der Schiedsrichter
+			angegeben.</message>
+		<message key="pdf_spielbericht_name">Spielername</message>
+		<message key="volleyframe_exit">Beenden</message>
+		<message key="volleyframe_view_challenge">Turnier</message>
+		<message key="exportdialog_pdf_file">Adobe PDF-Dateien</message>
+		<message key="volleyframe_save_changes">Änderungen speichern?</message>
+		<message key="turnierpanel_durationgame">Spieldauer (min)</message>
+		<message key="volleyframe_language_german">Deutsch</message>
+		<message key="turnierpanel_points_per_tiegame">Punkte / Unentschieden</message>
+		<message key="spielplantable_del_game">Spiel löschen</message>
+		<message key="spieleditpanel_setting">Paarung</message>
+		<message key="pdf_schiedsrichter_list">Liste für </message>
+		<message key="volleyframe_save_changes_title">Ansichtwechsel</message>
+		<message key="jsp_link_backlink">zur Turnier&amp;uuml;bersicht</message>
+		<message key="spielplantable_block">. Block / </message>
+		<message key="pdf_gruppen_title">G R U P P E N</message>
+		<message key="jsp_gruppe_diffpo">Diff Bä</message>
+		<message key="jsp_kontakt_copyright">Copyrights</message>
+		<message key="jsp_kontakt_softwaretext">Sie veranstalten auch Volleyball-Turniere? Sie
+			qu&amp;auml;len sich noch mit der Spielplan-Erstellung? Ihre
+			Teilnehmer wissen w&amp;auml;hrend des Turniers nie, auf welchem
+			Platz sie grade stehen?&lt;br /&gt;Dann sprechen Sie mit uns! Wir
+			bieten Ihnen eine integrierte L&amp;ouml;sung zur Vorbereitung,
+			Begleitung und Dokumentation von Turnieren.</message>
+		<message key="logischmannschaftdialog_group">Gruppe</message>
+		<message key="volleyframe_beamer">Beameransicht</message>
+		<message key="turnierpanel_linkid">Link-ID</message>
+		<message key="jsp_gruppe_platz">Platz</message>
+		<message key="jsp_kontakt_contact">Kontakt</message>
+		<message key="volleyframe_language_english">Englisch</message>
+		<message key="navigationtree_export_challenge">Turnier speichern ...</message>
+		<message key="pdf_schiedsrichter_group">Gruppe</message>
+		<message key="platzierungentable_unknown_col">[PlatzierungPanel] unbekannte Spalte:</message>
+		<message key="spielplantable_new_block">Neuer Block</message>
+		<message key="volleyframe_schedule">Spielplan</message>
+		<message key="exportdialog_abort">Abbrechen</message>
+		<message key="jsp_turnier_statistic">Statistik</message>
+		<message key="statistikaction_points_per_set">Bälle pro Satz</message>
+		<message key="volleyframe_language_spanish">Spanisch</message>
+		<message key="volleyframe_import_challenge">Öffnen ...</message>
+		<message key="exportdialog_export">Exportieren</message>
+		<message key="turnierpanel_fields">Spielplätze</message>
+		<message key="jsp_turnier_schedule">Spielplan</message>
+		<message key="spielplantable_no_game">kein Spiel</message>
+		<message key="jsp_platzierung_team">Mannschaft</message>
+		<message key="jsp_statistik_statistic">Statistik</message>
+		<message key="volleyframe_open">Öffnen</message>
+		<message key="jsp_index_name">Name</message>
+		<message key="licence_demo">Demoversion</message>
+		<message key="volleyframe_view_groups">Gruppen</message>
+		<message key="volleyframe_html_challenge">Als Webseite speichern ...</message>
+		<message key="jsp_turnier_startdate">Startdatum</message>
+		<message key="platzierungentable_team">Mannschaft</message>
+		<message key="spielplantable_lock">Spielplan sperren</message>
+		<message key="volleypanel_save">speichern</message>
+		<message key="aboutdialog_ok">OK</message>
+		<message key="mannschaftentable_unknow_col">[MannschaftenPanel] unbekannte Spalte:</message>
+		<message key="volleyframe_online">Terminalansicht</message>
+		<message key="volleyframe_test_server_titel">Server nicht gefunden!</message>
+		<message key="licence_licencefor">Lizenzinformationen</message>
+		<message key="pdf_schiedsrichter_gamenr">Spielnr.</message>
+		<message key="gruppentable_popup_title">Mannschaft |Sp |+Sp|-Sp|+Sä|-Sä|+Bä|-Bä|Dif
+		</message>
+		<message key="navigationtree_del_tournament">Wollen Sie wirklich das Turnier löschen?
+		</message>
+		<message key="volleyframe_file_pdf">PDF erstellen</message>
+		<message key="jsp_spielplan_block">Block</message>
+		<message key="volleyframe_jvolley_challenge_file">VM Turnier-Dateien</message>
+		<message key="volleyframe_path_not_found">Der angegebene Pfad konnte nicht gefunden werden.
+		</message>
+		<message key="mannschaftentable_name">Name</message>
+		<message key="turnierpanel_beamerchangetime">Beamerzeit (sek)</message>
+		<message key="volleyframe_pdf_spielbericht">Spielberichtsbogen ...</message>
+		<message key="volleyframe_save">Speichern</message>
+		<message key="spieleditpanel_referee">Schiedsrichter</message>
+		<message key="volleyframe_view_schedule">Spielplan</message>
+		<message key="spielplaetzetable_new_field">Neuer Spielplatz</message>
+		<message key="jsp_statistik_general">Gesamtstatistik</message>
+		<message key="spielplantable_unlock">Spielplan entsperren</message>
+		<message key="gruppentable_color">Farbe</message>
+		<message key="mannschaftentable_del_team">Mannschaft löschen</message>
+		<message key="volleyframe_noexternal_title">Anzeigeprogramm nicht gefunden</message>
+		<message key="mannschaftbo_place_of">. Pl aus </message>
+		<message key="platzierungentable_place">Platz</message>
+		<message key="jsp_platzierung_placings">Platzierungen</message>
+		<message key="gruppentable_unknow_col">[GruppenPanel] unbekannte Spalte:</message>
+		<message key="pdf_schiedsrichter_referee">Schiedsrichter</message>
+		<message key="pdf_schiedsrichter_set">Satz</message>
+		<message key="logischmannschaftdialog_accept">Übernehmen</message>
+		<message key="mannschaftentable_placeingroup">Gruppenplatz</message>
+		<message key="spielplaetzetable_unknow_col">[SpielplatzTable] unbekannte Spalte:</message>
+		<message key="jsp_index_beamer">Beamer</message>
+		<message key="init_db_is_inited">DB ist initialisiert</message>
+		<message key="modusbo_komode">KO-Modus</message>
+		<message key="pdf_spielplan_time">Zeit</message>
+		<message key="pdf_spielbericht_title">S P I E L B E R I C H T S B O G E N</message>
+		<message key="gruppentable_del_group">Gruppe löschen</message>
+		<message key="jsp_gruppe_pset">+Sä</message>
+		<message key="pdf_schiedsrichter_time">Zeit</message>
+		<message key="volleyframe_view_placings">Platzierungen</message>
+		<message key="spielplantable_time">Zeit</message>
+		<message key="volleyframe_view_teams">Mannschaften</message>
+		<message key="jsp_gruppe_npo">-Bä</message>
+		<message key="jsp_kontakt_realization">Realisierung</message>
+		<message key="treenodeobject_teams">Mannschaften</message>
+		<message key="volleyframe_pdf_schedule">Spielplan ...</message>
+		<message key="volleyframe_groups">Gruppen</message>
+		<message key="mannschaftenpanel_team">Team</message>
+		<message key="jsp_kontakt_responsibility">Haftung</message>
+		<message key="spielplantable_error_in_setvalueat">[SpielplanTable] Fehler in setValueAt</message>
+		<message key="jsp_index_date">Datum</message>
+		<message key="spieleditpanel_group">Gruppe</message>
+		<message key="exportdialog_save">Speichern</message>
+		<message key="mannschaftentable_log_team">Mit anderer Gruppe verknüpfen</message>
+		<message key="gruppentable_number">Nr</message>
+		<message key="title_new_challenge">Neues Turnier</message>
+		<message key="navigationtree_del_challenge">Turnier löschen</message>
+		<message key="volleyframe_view_unknown">unbekanntes Panel</message>
+		<message key="turnierpanel_durationbreak">Pausendauer (min)</message>
+		<message key="turnierpanel_date">Datum</message>
+		<message key="gruppentable_name">Name</message>
+		<message key="licence_licencedfor">Lizenziert für </message>
+		<message key="volleyframe_info">Info</message>
+		<message key="spielplaetzetable_name">Name</message>
+		<message key="aboutdialog_info">Info</message>
+		<message key="gruppentable_modus">Modus</message>
+		<message key="mannschaftentable_nogroup">Keine Gruppe</message>
+		<message key="volleyframe_path_not_found_titel">Pfad nicht gefunden!</message>
+		<message key="exportdialog_groups">Gruppen</message>
+		<message key="jsp_kontakt_responsibilitytext">Es wird keine Haftung f&amp;uuml;r
+			Sch&amp;auml;den &amp;uuml;bernommen, die aufgrund der von uns
+			genannten Informationen entstehen. Die Benutzung der Site geschieht
+			auf eigene Gefahr.&lt;br /&gt;Es wird keine Garantie f&amp;uuml;r die
+			Richtigkeit der von uns genannten Informationen &amp;uuml;bernommen.
+		</message>
+		<message key="volleyframe_pdf_referee">Schiedsrichter ...</message>
+		<message key="gruppentable_new_group">Neue Gruppe</message>
+		<message key="pdf_gruppen_mode">Modus</message>
+		<message key="turnierpanel_points_per_game">Punkte / Spiel</message>
+		<message key="volleyframe_file">Turnier</message>
+		<message key="volleyframe_export_challenge">Speichern ...</message>
+		<message key="modusbo_groupmode">Gruppenmodus</message>
+		<message key="exportdialog_path">Pfad</message>
+		<message key="spielplantable_del_block">Block löschen</message>
+		<message key="jsp_platzierung_place">Platz</message>
+		<message key="volleyframe_language_dutch">Niederländisch</message>
+		<message key="treenodeobject_unknow_type">TreeNodeObject::toString (): UNBEKANNTER TYPE
+		</message>
+		<message key="jsp_gruppe_pga">+Sp</message>
+		<message key="gruppenpanel_group">Gruppe</message>
+		<message key="turnierpanel_name_of_challenge">Turniername</message>
+		<message key="treenodeobject_groups">Gruppen</message>
+		<message key="jsp_index_tournamentoverview">Turnierübersicht</message>
+		<message key="overwrite_file">Eine Datei mit diesem Namen existiert bereits.
+			Wollen Sie diese überschreiben?</message>
+		<message key="volleyframe_noexternal">Bitte laden Sie die Datei</message>
+		<message key="mannschaftbo_short_looser">Verl</message>
+		<message key="saetzetable_set">Satz</message>
+		<message key="volleyframe_pdf_challenge">PDF Datei erstellen</message>
+		<message key="volleyframe_new_challenge">Neu</message>
+		<message key="jsp_turnier_general">Zentrales</message>
+		<message key="volleyframe_spielbericht">Spielberichtsbogen</message>
+		<message key="logischmannschaftdialog_team">Mannschaft</message>
+		<message key="jsp_turnier_placings">Platzierung</message>
+		<message key="gruppenpanel_team">Team</message>
+		<message key="jsp_turnier_placingofgroups">Platzierung der Gruppen</message>
+		<message key="turnierpanel_text">Text</message>
+		<message key="aboutdialog_errorreport">Programmfehler melden</message>
+		<message key="spielplantable_autogen">Spielplan auto. generieren</message>
+		<message key="licence_standard">Standardversion</message>
+		<message key="jsp_gruppe_team">Mannschaft</message>
+		<message key="turnierpanel_points_per_set">Punkte / Satz</message>
+		<message key="pdf_spielbericht_remark">Bemerkung</message>
+		<message key="logischmannschaftdialog_abort">Abbrechen</message>
+		<message key="jsp_kontakt_software">Turnier Software</message>
+		<message key="volleyframe_test_server1">Bitte überprüfen Sie, ob der Server gestartet
+			wurde.</message>
+		<message key="volleyframe_test_server2">Volleyball Manager wird automatisch beendet.
+		</message>
+		<message key="mannschaftentable_new_logteam">Neue logische Mannschaft</message>
+		<message key="treenodeobject_placings">Platzierungen</message>
+		<message key="spielplaetzetable_field">Platz</message>
+		<message key="mannschaftentable_group">Gruppe</message>
+		<message key="jsp_turnier_createdby">Realisierung</message>
+		<message key="pdf_spielbericht_passnumber">Pass-Nr.</message>
+		<message key="volleytreecellrenderer_picture_not_found">[JvolleyTreeCellRenderer] Bilder nicht gefunden!
+		</message>
+		<message key="saetzetable_new_set">Neuer Satz</message>
+		<message key="saetzetable_second_team">2. Mannschaft</message>
+		<message key="jsp_gruppe_ga">Sp</message>
+		<message key="volleyframe_export_to_html">Turnier nach Html exportieren (Verzeichnis
+			wählen)</message>
+		<message key="volleyframe_help">Hilfe</message>
+		<message key="licence_notregistered">[NICHT REGISTRIERT]</message>
+		<message key="mannschaftbo_short_winner">Gew</message>
+		<message key="volleyframe_order">Volleyball Manager erwerben</message>
+		<message key="platzierungentable_please_select">Bitte Auswählen</message>
+		<message key="volleytreecellrenderer_unknow_node">[JvolleyTreeCellRenderer] Unbekannter Knotentype
+		</message>
+		<message key="spielblockeditpanel_during">Dauer (min)</message>
+		<message key="pdf_page">Seite </message>
+		<message key="pdf_schiedsrichter_title">S C H I E D S R I C H T E R</message>
+		<message key="saetzetable_unknow_col">[SaetzeTable] unbekannte Spalte:</message>
+		<message key="progressdialog_wait">Bitte warten ...</message>
+		<message key="treenodeobject_results">Ergebnisse</message>
+		<message key="logischmannschaftdialog_select_team">Mannschaft aussuchen</message>
+		<message key="volleyframe_referee">Schiedsrichter</message>
+		<message key="gruppentable_groupplacement">GRUPPENPLATZIERUNG</message>
+		<message key="mannschaftbo_of"> aus </message>
+		<message key="licence_profi">Profiversion</message>
+		<message key="pdf_schiedsrichter_field">Feld</message>
+		<message key="saetzetable_del_set">Satz löschen</message>
+		<message key="treenodeobject_schedule">Spielplan</message>
+		<message key="modusbo_groupmodeback">Gruppen mit Rückspiel</message>
+		<message key="jsp_spielplan_time">Zeit</message>
+		<message key="jsp_statistik_text">In der oberen Zeile steht jeweils der
+			Absolutwert; darunter der Durchnitt pro Spiel.</message>
+	</fop-messages>
+</fop-tournament>
