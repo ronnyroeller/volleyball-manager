@@ -1,0 +1,208 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.volley</groupId>
+	<artifactId>server</artifactId>
+	<packaging>jar</packaging>
+	<version>${version.number}-SNAPSHOT</version>
+	<name>server</name>
+	<url>http://maven.apache.org</url>
+	<parent>
+		<groupId>com.volley</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<build>
+		<plugins>
+			<!-- Creates classes to read XML files -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<executions>
+					<!-- Reads and write *.tur files -->
+					<execution>
+						<id>generate-tur-writer</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>volley-tur.xsd</schemaFiles>
+							<packageName>com.sport.server.persistency.tur</packageName>
+							<clearOutputDir>false</clearOutputDir>
+							<staleFile>${jaxb.output.dir}/.turStaleFlag.</staleFile>
+						</configuration>
+					</execution>
+					<!-- FOP-XML to generate schedule PDF -->
+					<execution>
+						<id>generate-fop-schedule</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<schemaFiles>fop-xml.xsd</schemaFiles>
+							<packageName>com.sport.server.fop</packageName>
+							<clearOutputDir>false</clearOutputDir>
+							<staleFile>${jaxb.output.dir}/.pStaleFlag.</staleFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Generate J2EE classes -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>xdoclet-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>xdoclet</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>xdoclet</goal>
+						</goals>
+						<configuration>
+							<!--
+								<generatedSourcesDirectory>src/main/resources</generatedSourcesDirectory>
+							-->
+							<tasks>
+								<ejbdoclet
+									destDir="${project.build.directory}/generated-sources/xdoclet"
+									mergeDir="${project.build.directory}/merge-dir" excludedtags="@version,@author"
+									ejbSpec="2.0" verbose="true" force="false">
+									<fileset dir="${basedir}/src/main/java">
+										<include name="com/sport/server/ejb/**/*Bean.java" />
+									</fileset>
+									<packageSubstitution packages="entity,session"
+										substituteWith="interfaces" />
+									<homeinterface />
+									<remoteinterface />
+									<localinterface />
+									<localhomeinterface />
+									<entitypk />
+									<entitycmp pattern="{0}" />
+									<deploymentdescriptor
+										destDir="${project.build.outputDirectory}/META-INF"
+										xmlencoding="ISO-8859-1" />
+									<!--
+										AS 4/29/02 Do not validate XML files because JBoss 3.0 message
+										driven will report an wrong error because it uses the wrong
+										jboss.dtd
+									-->
+									<jboss version="3.0" xmlencoding="UTF-8" typemapping="Hypersonic SQL"
+										datasource="java:/jvolleyDS" destdir="${project.build.outputDirectory}/META-INF"
+										validateXml="false" debug="on" />
+								</ejbdoclet>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Deploy to JBOss -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>distribute</id>
+						<phase>install</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<delete includeemptydirs="true" failonerror="false">
+									<fileset dir="${vm.dir}/log" includes="*" />
+								</delete>
+								<copy todir="${vm.dir}/server/server/default/deploy">
+									<fileset dir="${project.build.directory}" includes="*.jar" />
+								</copy>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>core</artifactId>
+			<version>${version.number}-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>analyzer</artifactId>
+			<version>${version.number}-SNAPSHOT</version>
+		</dependency>
+
+		<!-- Create PDFs (with FOP) -->
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>fop</artifactId>
+			<version>0.95</version>
+		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.11</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+
+		<!-- Helpers -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+	</dependencies>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>codehaus-plugins</id>
+			<url>http://dist.codehaus.org/</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>codehaus-plugins-legacy</id>
+			<url>http://dist.codehaus.org/</url>
+			<layout>legacy</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+	<properties>
+		<jaxb.output.dir>${project.build.outputDirectory}/generated-sources/jaxb</jaxb.output.dir>
+		<vm.dir>C:\VolleyballManager-${version.number}</vm.dir>
+	</properties>
+</project>
