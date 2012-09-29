@@ -1,0 +1,23 @@
+INSTALLATION DES VOLLEYBALL MANAGERS UNTER LINUX
+
+1. Um den Volleyball Manager unter Linux zu installieren, benoetigen Sie
+ein Java JDK 1.4 oder hoeher. Bitte laden Sie dieses kostenfrei unter
+http://www.java.com herunter und installieren Sie es.
+
+2. Starten Sie das automatische Installationsprogram und folgen Sie den
+Anweisungen. Wechseln Sie dazu in das Verzeichnis, in das Sie install.jar
+von unserer Webseite herunter geladen haben und geben Sie ein:
+$ java -jar install.jar
+
+4. Um den Server zu starten, wechseln Sie bitte ins Volleyball Manager
+Verzeichnis, das Sie im Installationsprogramm ausgewaehlt haben. Geben
+Sie dort ein:
+$ cd server/bin
+$ java -jar run.jar
+
+5. Nachdem der Server gestarted wurde, erscheint die Zeile "Server started 
+in XX sec". Starten Sie nun eine weiter Konsole und wechseln Sie ebenfalls
+in Volleyball Manager Verzeichnis. Um den Administrator zu starten, geben
+Sie bitte ein:
+$ cd client
+$ java -jar volley.jar

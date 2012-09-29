@@ -1,0 +1,73 @@
+Release Notes Volleyball Manager
+================================
+
+Version: 2.4.4
+
+Release Date: 29 September 2012
+
+These release notes provide an overview of the resolved issues and improvements of this release.
+
+IMPROVEMENTS & RESOLVED ISSUES
+==============================
+
+ - Enhancement: Advertisement banner are shown in beamer view
+
+------------------------------
+
+Release Notes Volleyball Manager
+================================
+
+Version: 2.4.3.1
+
+Release Date: 24 May 2011
+
+These release notes provide an overview of the resolved issues and improvements of this release.
+
+IMPROVEMENTS & RESOLVED ISSUES
+==============================
+
+ - Fix: Order the field names correctly in the schedule view for PDF and web
+
+------------------------------
+
+Version: 2.4.3
+
+Release Date: 17 September 2010
+
+These release notes provide an overview of the resolved issues and improvements of this release.
+
+IMPROVEMENTS & RESOLVED ISSUES
+==============================
+
+ - Improve visualization of the PDF exports to use better the space
+ - Replace dependencies on system encoding by UTF-8
+ - Ensure to log all error messages for the administrator to
+   VolleyballManager/log/administrator.log
+ - Remove dependency on system date format for *.tur import/export
+ - Improved error messaging
+ - Requires now Java 6
+ - Fix: Import the link-ID from the *.tur file. The link-ID is used for deep-linking in the
+   terminal and projector.
+ - Fix: Remove non-functioning readme links in the start menu
+ - Fix: Schedule view in the terminal fails no longer if a referee is defined for a match.
+
+------------------------------
+
+Version: 2.4.2
+
+Release Date: 13 August 2010
+
+These release notes provide an overview of the resolved issues and improvements of this release.
+
+IMPROVEMENTS & RESOLVED ISSUES
+==============================
+
+ - Log messages are written to directory VolleyballManager/log/
+ - Reduce download size of install.exe/install.zip
+ - Replace internal help system by a web-based help system (German only)
+ - Adjust all links to the new URL http://www.volleyball-manager.com
+ - Speed up installation by removing unnecessary steps 
+ - Add version numbers to installation directory (to avoid installing over existing version)
+ - Add version numbers to shortcut (to avoid installing over existing version)
+ - Avoid asking for administrator rights during installation (and potential "Access denied"
+   errors) under Windows Vista/Windows 7 by setting a different default installation directory
