@@ -1,0 +1,49 @@
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+	"http://struts.apache.org/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+    <definition name="errorpage" path="/jsp/errorpage.jsp">
+    </definition>
+
+    <definition name="baseDef" path="/jsp/layout.jsp">
+        <put name="body" value="/html/main.html"/>
+        <put name="backlink_turnier" value="/jsp/link.jsp"/>
+    </definition>
+    <definition name="index" extends="baseDef">
+        <put name="body" value="/jsp/index.jsp"/>
+        <put name="backlink_turnier" value="/jsp/empty.inc"/>
+    </definition>
+    <definition name="turnier" extends="baseDef">
+        <put name="body" value="/jsp/turnier.jsp"/>
+        <put name="backlink_turnier" value="/jsp/empty.inc"/>
+    </definition>
+    <definition name="spielplan" extends="baseDef">
+        <put name="body" value="/jsp/spielplan.jsp"/>
+    </definition>
+    <definition name="platzierung" extends="baseDef">
+        <put name="body" value="/jsp/platzierung.jsp"/>
+    </definition>
+    <definition name="statistik" extends="baseDef">
+        <put name="body" value="/jsp/statistik.jsp"/>
+    </definition>
+    <definition name="gruppe" extends="baseDef">
+        <put name="body" value="/jsp/gruppe.jsp"/>
+    </definition>
+    <definition name="kontakt" extends="baseDef">
+        <put name="body" value="/jsp/kontakt.jsp"/>
+    </definition>
+
+
+    <definition name="baseBeamer" path="/jsp/beamer/beamerlayout.jsp">
+        <put name="body" value="/html/main.html"/>
+    </definition>
+    <definition name="beamerspielplan" extends="baseBeamer">
+        <put name="body" value="/jsp/beamer/beamerspielplan.jsp"/>
+        <put name="meta" value="/jsp/beamer/beamerspielplanmeta.jsp"/>
+    </definition>
+    <definition name="beamergruppe" extends="baseBeamer">
+        <put name="body" value="/jsp/beamer/beamergruppe.jsp"/>
+        <put name="meta" value="/jsp/beamer/beamergruppemeta.jsp"/>
+    </definition>
+
+</tiles-definitions>
