@@ -7,6 +7,8 @@ The Volleyball Manager reduces your efforts to organize small to big tournaments
 - [Windows](https://github.com/ronnyroeller/volleyball-manager/blob/master/releases/install-2.4.4.exe?raw=true) (exe)
 - [MacOS/Linux](https://github.com/ronnyroeller/volleyball-manager/blob/master/releases/install-2.4.4.zip?raw=true) (zip)
 
+Follow the [Getting started guide](doc/getting-started.md) to start the Volleyball Manager
+
 ## Features
 
 **Tournament- & League Planing**
